@@ -36,24 +36,23 @@ Unicorn Tears
 ***********************************
 
 """)
-menu = ["Wings", "Cookies", "Spring Rolls", "Salmon", "Steak", "Meat Tornado",
-        "A Literal Garden", "Ice Cream", "Cake", "Pie", "Coffee", "Tea", "Unicorn Tears"]
-i = 1
-order = input(">")
+menu = ['wings', 'cookies', 'spring rolls', 'salmon', 'steak', 'meat tornado',
+        'a literal garden', 'ice Cream', 'cake', 'pie', 'coffee', 'tea', 'unicorn tears']
 
-print(f"{i} order of {order} have been added to your meal ")
-i = i+1
+orders = []
 
-print("would you like to order any things else")
-order = input(">")
-if order.lower() != "n":
+names_of_order = []
 
 
-  order = input(">")
-  print(f"{i} order of {order}  have been added to your meal")
-  
+def our_order():
 
-else:
-
-  print("thank you!")
-
+    order = input('please write your order >')
+    if order.lower() in menu:
+        orders.append(order)
+        if order not in names_of_order:
+            names_of_order.append(order)
+        print(
+            f'** {orders.count(order)} order of {order} have been added to your meal **')
+        our_order()
+    
+our_order()
